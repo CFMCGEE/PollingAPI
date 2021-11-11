@@ -17,7 +17,7 @@ public class VoteService {
     @Autowired
     private VoteRepository voteRepository;
 
-    public ResponseEntity<?> createVote(@PathVariable Long pollId, @RequestBody Vote vote) {
+    public ResponseEntity<?> createVote(Long pollId, Vote vote) {
 
         vote = voteRepository.save(vote);
 
@@ -29,7 +29,7 @@ public class VoteService {
 
     }
 
-    public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
+    public Iterable<Vote> getAllVotes(Long pollId) {
         return voteRepository.findByPoll(pollId);
     }
 

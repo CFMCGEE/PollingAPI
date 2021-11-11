@@ -41,7 +41,7 @@ public class PollService {
 
     }
 
-    public ResponseEntity<?> createPoll(@Valid @RequestBody Poll poll) {
+    public ResponseEntity<?> createPoll(Poll poll) {
 
         poll = pollRepository.save(poll);
 
@@ -57,7 +57,7 @@ public class PollService {
 
     }
 
-    public ResponseEntity<?> getPoll(@PathVariable Long pollId) {
+    public ResponseEntity<?> getPoll(Long pollId) {
 
         verifyPoll(pollId);
 
@@ -71,7 +71,7 @@ public class PollService {
 
     }
 
-    public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long pollId) {
+    public ResponseEntity<?> updatePoll(Poll poll, Long pollId) {
 
         verifyPoll(pollId);
 
@@ -82,8 +82,7 @@ public class PollService {
     }
 
 
-    @RequestMapping(value="/polls/{pollId}", method=RequestMethod.DELETE)
-    public ResponseEntity<?> deletePoll(@PathVariable Long pollId) {
+    public ResponseEntity<?> deletePoll(Long pollId) {
 
         verifyPoll(pollId);
 
